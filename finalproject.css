@@ -1,0 +1,121 @@
+#origin{
+  padding-top: 15px;
+  background-color: #F0F8FF;
+}
+
+#note1{
+  font-size:10px;
+}
+#soc{
+  padding-bottom: 10px;
+}
+
+.ig1{
+  margin-left:550px;
+}
+
+.btn-primary{
+  font-family: "Comic Sans MS";
+  font-size: 15px;
+}
+
+.btn-secondary{
+  font-family: "Comic Sans MS";
+  margin-left:20px;
+  font-size: 15px;
+}
+
+.btn-success{
+  font-family: "Comic Sans MS";
+  font-size: 15px;
+}
+
+#yourCanvas{
+  font-family: "Comic Sans MS";
+  margin-left: 350px;
+  font-size: 30px;
+}
+
+.video-js {
+    width: 30% !important;
+    height: 30% !important;
+    margin-left: 500px;
+}
+
+#box{
+  width:655px;
+  height:373px;
+  margin-left:60px;
+  position: static;
+  float:left;
+  border-style: dashed;
+}
+
+.tile{
+  border:1px solid #fff;
+  float:left;
+}
+
+#ctrls{
+  padding-top: 10px;
+	padding-left: 80px;
+  margin-bottom: 10px;
+}
+
+#cvs{
+  width: 640px;
+  height: 360px;
+  margin-left: 50px;
+  border-style: inset;
+  float:left;
+  background-image: url("canvas.jpg");
+}
+
+
+#cvs_ctrl{
+  width: 648px;
+  margin-left: 60px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+
+}
+
+#time{
+  margin-left: 250px;
+  font-family: "Comic Sans MS";
+}
+
+#banner{
+  font-size: 30px;
+  font-family: "Comic Sans MS";
+  background-color: #32CD32;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#start{
+  font-family: "Comic Sans MS";
+}
+
+#end{
+  font-family: "Comic Sans MS";
+}
+
+#loop{
+  font-family: "Comic Sans MS";
+}
+
+#loopEnabled{
+  margin-left:5px;
+}
+
+#current{
+  font-family: "Comic Sans MS";
+}
+
+#duration{
+  font-family: "Comic Sans MS";
+}

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+ <head>
+        <!-- jQuery -->
+        
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    
+      
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" type="text/css" href="finalproject.css">
+    <!--
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  -->
+    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
+    <script src="https://vjs.zencdn.net/5.6.0/video.js"></script>
+    <link href="https://vjs.zencdn.net/5.6.0/video-js.css" rel="stylesheet" />
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    </head>
+
+
+<body> 
+     <div id="brandbar">
+  <div class="container-fluid">
+    <div id="banner" style="text-align: center">
+        Video Canvas
+    </div>
+  </div>
+</div>
+<!--
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="original-video-tab" data-toggle="tab" href="#original-video" role="tab" aria-controls="original-video" aria-selected="true">Original Video</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="your-canvas-tab" data-toggle="tab" href="#your-canvas" role="tab" aria-controls="your-canvas" aria-selected="false">Your Canvas</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+
+   Original Video Tab starts 
+  <div class="tab-pane fade show active" id="original-video" role="tabpanel" aria-labelledby="original-video-tab">
+-->
+<div id="origin" style="text-align: center;">
+
+  <video id="video1" controls class="video-js" preload="auto">
+  </video>
+  <div id="soc">
+    <div class="input-group ig1">
+    <input type="text" id="input1" placeholder="provide a video source" />
+    <button type="button" class="btn btn-primary" onclick="loadVideo()">submit</button>
+     <button type="button" class="btn btn-secondary" onclick="viewhideDiv()">Show/Hide</button>
+   </div>
+
+</div>
+<div id="note1" >(*: provide a video source by typing the name of the file. i.e.: cross-hatching)</div>
+</div>
+
+<!--   Original Video Tab ends. -->
+
+
+<!--
+<div class="tab-pane fade" id="your-canvas" role="tabpanel" aria-labelledby="your-canvas-tab">
+-->
+
+  <div id="ctrls">
+  <input type="text" id="input2" placeholder="change video speed" />
+  <button type="button" class="btn btn-success" onclick="changeSpeed()">Change speed</button>
+  <button type="button" class="btn btn-success" onclick="resetPosition()">Reset position</button>
+  <button type="button" class="btn btn-success" onclick="playPause()">Play/Pause</button>
+<span id="yourCanvas">Your Canvas</span>
+</div>
+
+
+
+
+<div id="container">
+<div id="box"></div>
+
+<script src= "http://code.jquery.com/jquery-1.7.min.js"> </script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+<script type="text/javascript">
+    var myVideo = document.getElementById("video1"); 
+    var source = document.createElement('source');
+    var video = $("#video1")[0];
+    ROWS = 3;
+    COLS = 4;
+    tiles(640, 360, ROWS, COLS);
+    //source.setAttribute('src', 'drawing1.mp4');
+    //myVideo.appendChild(source);
+    
+    //myVideo.play();
+
+    function loadVideo(){
+      var temp=document.getElementById('input1').value;
+      var text=temp+".mp4";
+      myVideo.pause();
+      /*
+      var regex = RegExp('drawing[0-9]+[.]mp4');
+      if (!regex.test(text)){
+        window.alert("wrong file name!!")
+      }
+      else{
+        //var canvas = document.getElementById('tile');
+        //var context = canvas.getContext('2d');
+        //context.clear();
+*/
+        //tiles(640, 360, ROWS, COLS);
+      source.setAttribute('src', text);
+      myVideo.appendChild(source);
+      update(video);
+      myVideo.load();
+      myVideo.currentTime=0;
+      myVideo.play();
+        //source.setAttribute('src', document.getElementById("video1").src);
+
+    
+
+      
+      //myVideo.play();
+    } 
+    //myVideo.resizable();
+    /*
+    function makeBig() { 
+        myVideo.width = 1280;
+        myVideo.height = 900; 
+    } 
+
+    function makeSmall() { 
+        myVideo.width = 640;
+        myVideo.height = 480; 
+    } 
+
+    function makeNormal() { 
+        myVideo.width = 1024;
+        myVideo.height = 768; 
+    } 
+    */
+    function playPause() { 
+        if (myVideo.paused) 
+            myVideo.play(); 
+        else 
+            myVideo.pause(); 
+    } 
+
+
+    function viewhideDiv() {
+        if (document.getElementById("video1").style.display!="none")
+            document.getElementById("video1").style.display="none"; 
+        else
+            document.getElementById("video1").style.display="block";  
+    }
+
+    function changeSpeed(){
+       var dSpeed = parseFloat(document.getElementById("input2").value);
+       //console.log(dSpeed);
+       document.getElementById("video1").playbackRate=dSpeed;
+
+    }
+    //window.addEventListener("submit", initAudio);
+
+    myVideo.addEventListener('timeupdate', timeupdate, false);
+
+    function timeupdate() {
+      var loopStart = parseFloat(document.getElementById('loopStart').value);
+      var loopEnd = parseFloat(document.getElementById('loopEnd').value);
+      var loopEnabled = document.getElementById('loopEnabled').checked;
+
+      if(loopEnabled){
+        if (myVideo.currentTime < loopStart || myVideo.currentTime >= loopEnd ) {
+          myVideo.currentTime = loopStart;
+        }
+      }
+    }
+
+    function update(video) {
+      tiles(640, 360, ROWS, COLS, video);
+      setTimeout(function() { update(video) }, 33);
+    }
+
+    function tiles(w, h, r, c, source) {
+        var tileW = Math.round(w / c);
+        var tileH = Math.round(h / r);
+        console.log(tileW);
+        console.log(tileH);
+
+        for(var ri = 0; ri < r; ri += 1) {
+          for(var ci = 0; ci < c; ci += 1) {
+            //if source is not specified, just build canvas object, otherwise draw inside them
+            if (typeof source === 'undefined') {
+              var tile = $('<canvas class="tile" id="tile' + ri + ci + '" height="' + tileH + '" width="' + tileW + '"></canvas>').get(0);
+              $("#box").append(tile);
+              $(".tile").draggable();
+            } else {
+                var getit = $('#tile' + ri + ci).get(0);
+                var ctx = getit.getContext('2d');
+                ctx.drawImage(source, ci*tileW, ri*tileH, tileW, tileH, 0, 0, tileW, tileH);
+            }
+          }
+        }   
+
+    }
+
+    function resetPosition(){
+      for(var ri = 0; ri < 3; ri += 1) {
+          for(var ci = 0; ci < 4; ci += 1) {
+            var tile = document.getElementById("tile"+String(ri)+String(ci));
+            console.log(tile);
+            tile.style="position: relative";
+          }
+      }
+    }
+    
+
+    myVideo.ontimeupdate = function() {onTrackedVideoFrame()};
+    function onTrackedVideoFrame(){
+      document.getElementById("current").innerHTML = Math.round(myVideo.currentTime);
+      //document.getElementById("duration").innerHTML = Math.round(myVideo.duration);
+    }
+    myVideo.addEventListener('durationchange', function() {
+      document.getElementById("duration").innerHTML = Math.round(myVideo.duration);
+    });
+</script>
+<div id="cvs"></div>
+</div>
+<br>
+<div id="cvs_ctrl" style="text-align: left;">
+<span id="start">Start: </span><input type="text" size="5" id="loopStart" value="10" />
+  <span id="end">End: </span><input type="text" size="5" id="loopEnd"   value="15" />
+  <span id="loop">Loop: </span><input type="checkbox" id="loopEnabled" />
+  <span id="time">Time:</span>
+  <label id="current">0</label>
+  <label>/</label>
+  <label id="duration">0</label>
+</div>
+
+
+</body> 
+</html>
